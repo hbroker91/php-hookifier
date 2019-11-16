@@ -1,5 +1,5 @@
 {
-    "name": "Hbroker/php-hookifier",
+    "name": "hbroker91/php-hookifier",
     "description": "Package to add lifecycle hook(s) to any class easily",
     "keywords": [
         "lifecycle",
