@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Hbroker\PHPHookifier;
+namespace Hbroker91\PHPHookifier;
 
 /**
  * ## Mixin to add custom logic at specific lifecycle points of a class

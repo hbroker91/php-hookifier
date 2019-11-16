@@ -31,7 +31,7 @@ Implement the ```Hookable``` interface in the class where the hook(s) needed, or
 ```php
 namespace Some\Namespace;
 
-use Hbroker91\Hookable;
+use Hbroker91\PHPHookifier\Hookable;
 
 class UserModel extends Model implements Hookable {
 
@@ -67,7 +67,7 @@ Using the ```trait``` is similar, for example:
 
 namespace Some\Namespace;
 
-use Hbroker91\Hookify;
+use Hbroker91\PHPHookifier\Hookify;
 
 class UserModel extends Model {
 

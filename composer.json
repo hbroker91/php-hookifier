@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Hbroker\\PHPHookifier\\": "src/"
+            "Hbroker91\\PHPHookifier\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Hbroker\\PHPHookifier\\Tests\\": "tests/"
+            "Hbroker91\\PHPHookifier\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
