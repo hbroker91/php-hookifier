@@ -51,7 +51,8 @@ class UserModel extends Model implements Hookable {
         
     public static function beforeConstruct(... $options): bool 
     {
-        return isset($options['userData']));
+        [$payload] = $options;
+        return isset($payload['userData']));
     }
     
     public static function afterDestroy(... $options): bool
@@ -89,7 +90,8 @@ class UserModel extends Model {
         
     public static function beforeConstruct(... $options): bool 
     {
-        return isset($options['userData']));
+        [$payload] = $options;
+        return isset($payload['userData']));
     }
     
     public static function afterDestroy(... $options): bool {}
