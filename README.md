@@ -1,2 +1,111 @@
-# php-hookifier
-Package to add lifecycle hook(s) for any class
+PHP Hookifier 
+=======================
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Hbroker/php-hookifier/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Hbroker/php-hookifier/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/Hbroker/php-hookifier/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Hbroker/php-hookifier/build-status/master) 
+![License](https://img.shields.io/github/license/hbroker91/php-hookifier?style=flat-square)
+
+Simple package to add lifecycle hook(s) to any PHP class.
+
+The package consists of two files, an interface and a trait (mixin). In the case of the former, the class must implement the
+methods provided with the interface, in the latter case it just mixin in the codebase of the class.
+
+The main purpose of this tiny package is, to add one or two interaction point(s) to a class, before its' instantiation or after its' destruction or both. 
+It is useful to check, if various preconditions has been met before allow the execution to run further in the application, _e.g. request data checking_ before calling the class' constructor to instantiate it. 
+
+Requirements
+============
+
+* PHP >= 7.0
+* OOP style programmig
+* Willingness to spare couple of CPU cycles :)
+
+Installation
+============
+    composer require hbroker91/php-hookifier
+Usage
+=====
+Implement the ```Hookable``` interface in the class where the hook(s) needed, or use the ```Hookify``` trait with ```use``` keyword.
+
+**Example:**
+```php
+namespace Some\Namespace;
+
+use Hbroker91\Hookable;
+
+class UserModel extends Model implements Hookable {
+
+    /** @var string */
+    private $userName;
+    
+    /** @var string */
+    private $userId;
+    
+    /** @var string */
+    private $emailAddress;
+    ...
+    
+    // if the func. evaluates to false, throw an Exception somewhere at application's boot
+    // otherwise allow this class to instantiate and potentially fill up with data 
+    // (in this case this class represents a model).
+        
+    public static function beforeConstruct(... $options): bool 
+    {
+        return isset($options['userData']));
+    }
+    
+    public static function afterDestroy(... $options): bool
+    {
+        // do some very important thing
+        // if it went ok, return true otherwise false
+        return true;
+    }
+}
+```
+Using the ```trait``` is similar, for example:
+```php
+
+namespace Some\Namespace;
+
+use Hbroker91\Hookify;
+
+class UserModel extends Model {
+
+    use Hookify;
+
+    /** @var string */
+    private $userName;
+    
+    /** @var string */
+    private $userId;
+    
+    /** @var string */
+    private $emailAddress;
+    ...
+    
+    // if the func. evaluates to false, throw an Exception somewhere at application's boot
+    // otherwise allow this class to instantiate and potentially fill up with data 
+    // (in this case this class represents a model).
+        
+    public static function beforeConstruct(... $options): bool 
+    {
+        return isset($options['userData']));
+    }
+    
+    public static function afterDestroy(... $options): bool {}
+}
+```
+In this case the ```afterDestroy``` body is empty, it isn't used.
+
+Pretty straightforward.
+
+Footnote
+=======
+
+If you find it useful, plase give a :star:, thank you.
+
+Got questions, ideas, improvement tips? 
+
+Feel free to contact me.
+
+
