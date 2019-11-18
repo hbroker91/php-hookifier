@@ -17,6 +17,7 @@ trait Hookify
      */
     public static function beforeConstruct(... $options): bool
     {
+        return true;
     }
 
     /**
@@ -28,6 +29,7 @@ trait Hookify
      */
     public static function afterDestroy(... $options): bool
     {
+        return true;
     }
 
 }

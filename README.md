@@ -27,7 +27,7 @@ Usage
 =====
 Implement the ```Hookable``` interface in the class where the hook(s) needed, or use the ```Hookify``` trait with ```use``` keyword.
 
-**Example:**
+**Examples:**
 ```php
 namespace Some\Namespace;
 
@@ -104,7 +104,7 @@ Pretty straightforward.
 Footnote
 =======
 
-If you find it useful, plase give a :star:, thank you.
+If you found it useful, plase give a :star:, thank you.
 
 Got questions, ideas, improvement tips? 
 
